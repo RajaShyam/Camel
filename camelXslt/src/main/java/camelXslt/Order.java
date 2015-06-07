@@ -2,6 +2,9 @@ package camelXslt;
 
 import javax.xml.bind.annotation.XmlRootElement;
 
+/*
+ * class to specify orders
+ */
 @XmlRootElement(name = "Order")
 public class Order {
 
