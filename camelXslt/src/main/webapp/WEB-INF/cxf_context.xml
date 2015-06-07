@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:jaxrs="http://cxf.apache.org/jaxrs"
+	xmlns:cxf="http://camel.apache.org/schema/cxf"
+	xmlns:jaxrs-client="http://cxf.apache.org/jaxrs-client"
+	xsi:schemaLocation="http://cxf.apache.org/jaxrs-client http://cxf.apache.org/schemas/jaxrs-client.xsd
+		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.5.xsd
+		http://cxf.apache.org/jaxrs http://cxf.apache.org/schemas/jaxrs.xsd
+		http://camel.apache.org/schema/spring http://camel.apache.org/schema/spring/camel-spring.xsd
+		http://camel.apache.org/schema/cxf http://camel.apache.org/schema/cxf/camel-cxf.xsd">
+
+<import resource="classpath:META-INF/cxf/cxf.xml" />
+<import resource="classpath:META-INF/cxf/cxf-servlet.xml"/>
+
+<import resource="classpath:camel_context.xml" />
+	
+	<jaxrs:server address="/" id="connectionService">
+		<jaxrs:serviceBeans>
+			<ref bean="order" />
+		</jaxrs:serviceBeans>
+	</jaxrs:server>
+	
+	<bean id="order" class="camelXslt.OrderInfoImpl"/>
+<!-- address="http://localhost:8080/camelXslt/services/Order/All" -->
+	<cxf:cxfEndpoint id="orderEndPoint"
+			address="/Order/navigateOrder"
+			serviceClass="camelXslt.OrderInfo">
+	</cxf:cxfEndpoint>
+	
+	<bean id="tFactory" class="org.apache.xalan.xsltc.trax.TransformerFactoryImpl"/>
+</beans>
