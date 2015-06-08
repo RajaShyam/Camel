@@ -11,32 +11,13 @@
 	
 	<routeContext id="services-core-rtcxt" xmlns="http://camel.apache.org/schema/spring"
 		xmlns:ns="http://www.opentravel.org/OTA/2003/05">
-<!-- 
-		<route id="sampleRoute">
-			<from uri="servlet:///hello?matchOnUriPrefix=true" />
-			<from uri="cxf:bean:orderEndPoint" />
-			<to uri="xslt://OrderXsltParser.xsl"/>
-			<to uri="http://localhost:8080/camelXslt/services/Order/getOrder?bridgeEndpoint=true&amp;throwExceptionOnFailure=false"/>
-		</route> -->
-		
 		<route>
 			<from uri="servlet:///hello?matchOnUriPrefix=true"/>
-			<!-- <to uri="xslt:file:D:\icomm_project\config\integrationEngine\camel\Transformations\OrderXsltParser.xsl"/> -->
 			<to uri="xslt://classpath:parsers/OrderXsltParser.xsl"/>
-			<!-- <wireTap uri="direct:tap"/> -->
 			<to uri="http://localhost:8080/camelXslt/services/Order/getOrder?bridgeEndpoint=true&amp;throwExceptionOnFailure=false"/>
 		</route>
-		<route>
-			<from uri="direct:tap"/>
-			<to uri="http://localhost:8080/camelXslt/services/Order/getOrder?bridgeEndpoint=true&amp;throwExceptionOnFailure=false"/>
-	</route>
 	</routeContext>
-
 	<camelContext id="camelContext" xmlns="http://camel.apache.org/schema/spring">
-
 		<routeContextRef ref="services-core-rtcxt" />
-
 	</camelContext>
-
-
 </beans>

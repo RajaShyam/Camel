@@ -16,7 +16,6 @@
 			<resource>
 				<directory>src/main/java/resources</directory>
 				<includes>
-					<!-- <include>config/**/*.*</include> -->
 					<include>*</include>
 				</includes>
 
@@ -48,26 +47,6 @@
 		</plugins>
 	</build>
 	<dependencies>
-		<!-- <dependency>
-			<groupId>org.apache.cxf</groupId>
-			<artifactId>cxf-rt-frontend-jaxrs</artifactId>
-			<version>3.0.2</version>
-		</dependency>
-		<dependency>
-			<groupId>org.apache.cxf</groupId>
-			<artifactId>cxf-rt-core</artifactId>
-			<version>2.7.9</version>
-		</dependency>
-		<dependency>
-			<groupId>org.apache.cxf</groupId>
-			<artifactId>cxf-rt-databinding-aegis</artifactId>
-			 <version>2.7.9</version>
-		</dependency>
-		<dependency>
-            <groupId>org.apache.cxf</groupId>
-            <artifactId>cxf-bundle-jaxrs</artifactId>
-            <version>2.7.9</version>
-        </dependency> -->
         <dependency>
 				<groupId>org.apache.cxf</groupId>
 				<artifactId>cxf-rt-frontend-jaxrs</artifactId>
@@ -173,14 +152,8 @@
 			<artifactId>camel-jetty</artifactId>
 			<version>2.15.0</version>
 		</dependency>
-		<dependency>
-			<groupId>xalan</groupId>
-			<artifactId>xalan</artifactId>
-			<version>2.7.2</version>
-		</dependency>
 	</dependencies>
 	<packaging>war</packaging>
-	
 	<properties>
 		<cxf.version>3.0.2</cxf.version>
 		<javax.jsr311.api.version>1.1</javax.jsr311.api.version>

@@ -22,11 +22,8 @@
 	</jaxrs:server>
 	
 	<bean id="order" class="camelXslt.OrderInfoImpl"/>
-<!-- address="http://localhost:8080/camelXslt/services/Order/All" -->
-	<cxf:cxfEndpoint id="orderEndPoint"
+	<!-- <cxf:cxfEndpoint id="orderEndPoint"
 			address="/Order/navigateOrder"
 			serviceClass="camelXslt.OrderInfo">
-	</cxf:cxfEndpoint>
-	
-	<bean id="tFactory" class="org.apache.xalan.xsltc.trax.TransformerFactoryImpl"/>
+	</cxf:cxfEndpoint> -->
 </beans>
